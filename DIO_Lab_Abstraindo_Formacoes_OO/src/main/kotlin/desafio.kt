@@ -6,9 +6,9 @@ data class Usuario(
     val cod: Int
 )
 
+// data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
 data class ConteudoEducacional(
-    var nome: String,
-    val duracao: Int = 60
+    val nome: String
 )
 
 data class Formacao(
