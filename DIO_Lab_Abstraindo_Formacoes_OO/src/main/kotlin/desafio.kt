@@ -1,11 +1,10 @@
 
-enum class Nivel {
-    BASICO,
-    INTERMEDIARIO,
-    AVANCADO
-}
+enum class Nivel {BASICO, INTERMEDIARIO, AVANCADO}
 
-class Usuario
+data class Usuario(
+    val nome: String,
+    val cod: Int
+)
 
 data class ConteudoEducacional(
     var nome: String,
