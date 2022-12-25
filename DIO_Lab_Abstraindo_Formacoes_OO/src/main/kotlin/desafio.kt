@@ -2,7 +2,7 @@
 enum class Nivel {
     BASICO,
     INTERMEDIARIO,
-    DIFICIL
+    AVANCADO
 }
 
 class Usuario
