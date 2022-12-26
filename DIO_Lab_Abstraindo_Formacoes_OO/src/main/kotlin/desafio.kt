@@ -1,39 +1,50 @@
+data class Usuario(val nome: String, val cod: Int)
 
-enum class Nivel {BASICO, INTERMEDIARIO, AVANCADO}
-
-data class Usuario(
-    val nome: String,
-    val cod: Int
-)
-
-// data class ConteudoEducacional(var nome: String, val duracao: Int = 60)
-data class ConteudoEducacional(
-    val nome: String
-)
-
-
-
+data class ConteudoEducacional(val nome: String)
 
 data class Formacao(
+
     val nome: String,
-    var conteudos: List<ConteudoEducacional>
+    val conteudos: List<ConteudoEducacional>
 ) {
-    val inscritos = mutableListOf<Usuario>()
-    fun matricular(usuario: Usuario) {
+    val matriculados = mutableListOf<Usuario>()
 
-//        TODO("Utilize o parâmetro $usuario para simular uma matrícula " +
-//                "(usar a lista de $inscritos).")
-
-
+    infix fun matricular(usuario: Usuario) {
+        matriculados.add(usuario)
     }
+
+    fun listarConteudosEduc() {
+        for (conteudo in conteudos)
+            println(conteudo.nome)
+    }
+
+    fun listarMatriculados() {
+        //for (inscrito in matriculados)
+        for (matriculado in matriculados)
+            println(matriculado.nome)
+    }
+
 }
 
 fun main() {
 
-//    TODO("Analise as classes modeladas para este domínio de aplicação e " +
-//            "pense em formas de evoluí-las.")
+    val homer = Usuario("Homer Simpson", 1)
+    val flanders = Usuario("Ned Flanders", 2)
+    val nelson = Usuario("Nelson Muntz", 3)
+    val moe = Usuario("Moe Szyslak", 4)
+
+    val listaConteudosKotlinExp: List<ConteudoEducacional> = listOf(
+        ConteudoEducacional("O Poder das Funções em Kotlin"),
+        ConteudoEducacional("Estruturas de Controle de Fluxo e Coleções em Kotlin")
+    )
+    val kotlinExperience = Formacao("Kotlin Experience", listaConteudosKotlinExp)
+
+    kotlinExperience?.let {
+        kotlinExperience.matricular(homer)
+        kotlinExperience.matricular(flanders)
+        kotlinExperience.matricular(nelson)
+        kotlinExperience.matricular(moe)
+    }
 
 
-//    TODO("Simule alguns cenários de teste. Para isso, crie alguns objetos usando " +
-//            "as classes em questão.")
 }
