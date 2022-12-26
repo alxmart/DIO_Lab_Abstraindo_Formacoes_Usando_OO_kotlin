@@ -46,5 +46,18 @@ fun main() {
         kotlinExperience.matricular(moe)
     }
 
+    println("Formacao:")
+    println("---------")
+    println("${kotlinExperience.nome}")
+    println()
+
+    println("Conteúdos Educacionais:")
+    println("-----------------------")
+    kotlinExperience.listarConteudosEduc()
+    println()
+
+    println("Matriculados:")
+    println("-------------")
+    kotlinExperience.listarMatriculados()
 
 }
