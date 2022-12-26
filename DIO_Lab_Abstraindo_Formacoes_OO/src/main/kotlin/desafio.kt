@@ -3,7 +3,6 @@ data class Usuario(val nome: String, val cod: Int)
 data class ConteudoEducacional(val nome: String)
 
 data class Formacao(
-
     val nome: String,
     val conteudos: List<ConteudoEducacional>
 ) {
